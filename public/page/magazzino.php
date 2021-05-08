@@ -9,7 +9,7 @@ WHERE id_store = '$idstore' ")->fetch_all();
 $l;
 if($prodotti){
     $l='';
-    var_dump($prodotti);
+    //var_dump($prodotti);
     for($i=0;$i<count($prodotti);$i++){
         $l.='<div class="w-9/12  shadow-xl">
         <!--Immagine-->

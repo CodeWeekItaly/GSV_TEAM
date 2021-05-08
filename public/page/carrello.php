@@ -84,7 +84,7 @@ if($carrello){
         <h2 class="font-bold ml-8 mt-4 text-xl">Totale Carrello : <?php echo $tot; ?>€</h2>
         <?php
             if(!$carrello[0]=""){
-                var_dump($c2);
+                //var_dump($c2);
                 echo '<form method="post">
                 <input type="hidden" name="lista" value="'.$c2.'">
                 <button type="submit" name="compra" class="w-48  text-white  mt-2 ml-2 bg-green-600 hover:bg-red-500">acquista prodotti</button>

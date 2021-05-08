@@ -2,18 +2,18 @@
     $idp=$_SESSION['idprod'];
  $store=$conn->query("SELECT id,nome FROM store WHERE id_venditore='$idp'")->fetch_all();
  $u2=$_SESSION['userprod'];
- echo $u2;
+ //echo $u2;
  $idp=$_SESSION['idprod'];
  $i=0;
  if($store){
     $l='';
     $k='';
-    var_dump($store);
+    //var_dump($store);
     for($i=0;$i<count($store);$i++){
         $i2=$store[$i][0];
         $n=$store[$i][1];
         $categorie=$conn->query("SELECT id,nome FROM categoria WHERE id_store='".($i2-1)."'")->fetch_assoc();
-        var_dump($categorie);
+        //var_dump("SELECT id,nome FROM categoria WHERE id_store='".($i2-1)."'");
         if(!is_null($categorie)){
             for($j=0;$j<count($categorie);$j++){
                 $n1=$categorie['id'];
@@ -21,13 +21,13 @@
                 $k.="<option value='$n1'>$i3</option>";
             }
         }
-        var_dump($categorie);
+        //var_dump($categorie);
         
         $l.="<option value='$i2'>$n</option>";
 
     }
 }
-var_dump($_POST);
+//var_dump($_POST);
 if(isset($_POST['nome']) && isset($_POST['descrizione']) && isset($_POST['prezzo']) && isset($_POST['qta']) && isset($_POST['categoria']) && isset($_POST['store']) && isset($_FILES['img']) ){
     $u=$_POST['nome'];$n=$_POST['descrizione'];$c=$_POST['prezzo'];$e=$_POST['qta'];$cc=$_POST['categoria'];$s=$_POST['store'];
     $res=$conn->query("INSERT INTO prodotti(id,nome,descrizione,prezzo,qta,id_store,id_categoria,img) VALUES ('','$u','$n','$c','$e','$s','$cc','$u.jpeg')");
@@ -35,7 +35,7 @@ if(isset($_POST['nome']) && isset($_POST['descrizione']) && isset($_POST['prezzo
         echo '<script>alert("Registrazione effetuata"); location.href="?page=home.php";</script>';
 
     $PATH=$_SERVER['DOCUMENT_ROOT']."/php/Hackaton GVS/GSV_TEAM/assets/img/$u2";//quando inserisci nel server sostituire con /home/vol5_3/epizy.com/epiz_27299733/htdocs/mvcommerce/admin/prodotti/
-    echo $_POST['nome'];
+    //echo $_POST['nome'];
 
     $upload_percorso = $PATH.'/';
 
@@ -95,7 +95,7 @@ if(isset($_POST['nome']) && isset($_POST['descrizione']) && isset($_POST['prezzo
         <!--Password Ripeti-->
         <br>Seleziona la categoria del prodotto<label for="localita" class="sr-only"></label>
           <select name="categoria">
-          <?php var_dump($k); ?>
+          <?php echo($k); ?>
           </select>
       <div class="flex items-center justify-between">
 

@@ -16,7 +16,7 @@ if(isset($_POST['categ'])){
   <div class="max-w-md w-full space-y-8">
     <div>
       <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
-        scegli la modalita di accesso
+        Inserisci categoria
       </h2>
     </div>
     
@@ -30,7 +30,7 @@ if(isset($_POST['categ'])){
   <div>
     <label for="categ" class="sr-only">nome categoria</label>
     <input id="categ" name="categ" type="text" autocomplete="none" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="categoria ">
-  </div>
+  </div><br>
 
 
 <div>

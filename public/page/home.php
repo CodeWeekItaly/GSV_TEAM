@@ -12,25 +12,26 @@ $store=$conn->query("SELECT * FROM store");
 
 
             <!--Container card-->
-            <div class="w-full w-1/3 float-left flex justify-center pb-3" style="border:solid 1px green" > 
+            <div class="w-full w-1/3 float-left flex justify-center pb-3"  > 
             <?php
                 if($store){
                     $store=$store->fetch_all();
                     //var_dump($store);
+                    $img=1;
                     foreach($store as $s){
                         $valutazione=$conn->query("SELECT AVG(valutazione) as 'media' from recensione where id_store='$s[0]'")->fetch_assoc();
                         echo '<!--Card-->
-                        <div class="w-1/3  m-2 shadow-xl" style="border:solid 1px red">
+                        <div class="w-1/3  m-2 shadow-xl" >
                         
                             <!--Immagine-->
                             <div class="w-100 h-64 rounded-t-lg" >
-                                <img src="https://images.pexels.com/photos/1833586/pexels-photo-1833586.jpeg" alt="img" class="h-64 object-cover object-center rounded-t-lg" style="width: 100%;">
+                                <img src="assets/img/store/'.$img.'.jpg" alt="img" class="h-64 object-cover object-center rounded-t-lg" style="width: 100%;">
                             </div>
                             <!--Descrizione-->
                             <div class="p-4">
                                 <h2>'.$s[1].'</h2>
-                                <p>'.substr($s[2],0,10).'....</p>
-                                <p>Valutazione: '.$valutazione['media'].'/5</p>
+                                <p>'.substr($s[2],0,70).'....</p>
+                                <p>Valutazione: '.trim($valutazione['media'],'.0').'/5</p>
                             </div>
                             <!--Btn Visita-->
                             <div class="p-4">
@@ -38,6 +39,7 @@ $store=$conn->query("SELECT * FROM store");
                             </div>
                         </div>
                         <br>';
+                        $img++;
                     }
                 }
                 ?>

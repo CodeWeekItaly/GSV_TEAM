@@ -1,7 +1,7 @@
 <?php
 $idprodotto=$_GET['id'];
 $userprod=$_GET['userprod'];
-$iduser=$_SESSION['iduser'];
+$iduser=isset($_SESSION['iduser'])?$_SESSION['iduser']:'';
 $prodotto=$conn->query("SELECT * from prodotti WHERE id='$idprodotto'")->fetch_assoc();
 
 if(isset($_POST['carello'])){
@@ -32,12 +32,19 @@ if(isset($_POST['carello'])){
                 <p class="ml-2 pb-4">prezzo: <?php echo $prodotto['prezzo'];  ?> euro</p>
                 <p class="ml-2 pb-4">Disponibilita: <?php echo $prodotto['qta'];  ?>pz</p>
                 <div class="flex  justify-start">
-                <form  method="post">
-                <input type="hidden" name="idprodotto" value="<?php echo $prodotto['id'];  ?>">
-                <button type="submit" name="carello" class="bg-blue-600 hover:bg-blue-500 p-1 rounded-sm text-white ml-2">Aggiungi al carrello</button>
-                <button type="submit" name="acquista" class="bg-red-600 hover:bg-red-500 p-1 rounded-sm text-white ml-2">Acquista</button>
-                </div>
-                </form>
+                <?php
+                    if($iduser==''){
+                        echo 'effettua l\'accesso</div>';
+                    }else{
+                        echo '<form  method="post">
+                        <input type="hidden" name="idprodotto" value="'.$prodotto['id'].'">
+                        <button type="submit" name="carello" class="bg-blue-600 hover:bg-blue-500 p-1 rounded-sm text-white ml-2">Aggiungi al carrello</button>
+                        <button type="submit" name="acquista" class="bg-red-600 hover:bg-red-500 p-1 rounded-sm text-white ml-2">Acquista</button>
+                        </div>
+                        </form>';
+                    }
+                ?>
+                
 
 
             </div>
