@@ -1,0 +1,17 @@
+<!--Card-->
+                <div class="w-9/12  shadow-xl">
+                    <!--Immagine-->
+                    <div class="w-100 h-64 rounded-t-lg" >
+                        <img src="https://images.pexels.com/photos/1833586/pexels-photo-1833586.jpeg" alt="img" class="h-64 object-cover object-center rounded-t-lg" style="width: 100%;">
+                    </div>
+                    <!--Descrizione-->
+                    <div class="p-4">
+                        <h2>Magazzino</h2>
+                        <p>Descrizione</p>
+                        <p>Valutazione: 4/5</p>
+                    </div>
+                    <!--Btn Visita-->
+                    <div class="p-4">
+                      <a href="./magazzino.php"><button class="p-2 bg-blue-600 w-24 text-white">Visita</button></a>  
+                    </div>
+                </div>
