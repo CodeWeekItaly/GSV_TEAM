@@ -79,7 +79,7 @@ if(isset($_SESSION['idprod'])){
                 
                 <hr>
                 <!--List-->
-                <li><a href="?page=lista.php">Lista Store</a></li>
+                <li><a href="?page=home.php">Lista Store</a></li>
 
                 
             </ul>

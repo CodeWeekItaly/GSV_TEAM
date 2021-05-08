@@ -13,6 +13,9 @@
 if(isset($_POST['username']) && isset($_POST['nome']) && isset($_POST['cognome']) && isset($_POST['email']) && isset($_POST['password']) && ($_POST['password']==$_POST['password_ripeti']) && isset($_POST['localita'])){
     $u=$_POST['username'];$n=$_POST['nome'];$c=$_POST['cognome'];$e=$_POST['email'];$p=$_POST['password'];$l=$_POST['localita'];
     $res=$conn->query("INSERT INTO utente(id,nome,cognome,username,password,email,id_localita) VALUES ('','$n','$c','$u','$p','$e','$l')");
+    $id=$conn->query("SELECT id FROM utente WHERE username='$u' AND email='$e'")->fetch_assoc();
+    $id=$id['id'];
+    $res2=$conn->query("INSERT INTO carrello(id,id_utente,lista) VALUES ('','$id','')");
     echo '<script>alert("Registrazione effetuata"); location.href="?page=login.php";</script>';
 }
 

@@ -12,7 +12,8 @@
     for($i=0;$i<count($store);$i++){
         $i2=$store[$i][0];
         $n=$store[$i][1];
-        $categorie=$conn->query("SELECT id,nome FROM categoria WHERE id_store='$i2'")->fetch_assoc();
+        $categorie=$conn->query("SELECT id,nome FROM categoria WHERE id_store='".($i2-1)."'")->fetch_assoc();
+        var_dump($categorie);
         if(!is_null($categorie)){
             for($j=0;$j<count($categorie);$j++){
                 $n1=$categorie['id'];
@@ -94,7 +95,7 @@ if(isset($_POST['nome']) && isset($_POST['descrizione']) && isset($_POST['prezzo
         <!--Password Ripeti-->
         <br>Seleziona la categoria del prodotto<label for="localita" class="sr-only"></label>
           <select name="categoria">
-          <?php echo $k; ?>
+          <?php var_dump($k); ?>
           </select>
       <div class="flex items-center justify-between">
 

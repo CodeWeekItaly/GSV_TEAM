@@ -25,7 +25,7 @@ if($prodotti){
         </div>
         <!--Btn Visita-->
         <div class="p-4">
-          <a href=".?page=prodotto.php&id='.$prodotti[$i][0].'"><button class="p-2 bg-blue-600 w-24 text-white">Visita</button></a>  
+          <a href=".?page=prodotto.php&id='.$prodotti[$i][0].'&userprod='.$userprod['username'].'"><button class="p-2 bg-blue-600 w-24 text-white">Visita</button></a>  
         </div>
     </div>';
     }

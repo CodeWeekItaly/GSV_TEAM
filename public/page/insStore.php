@@ -18,7 +18,7 @@ if(isset($_POST['nome_store']) && isset($_POST['regione']) && isset($_POST['citt
     $n=$_POST['nome_store'];$r=$_POST['regione'];$i=$_POST['indirizzo_store'];$id=$_SESSION['idprod'];$desc=$_POST['descrizione'];
     //echo "INSERT INTO store(id,nome,descrizione,id_venditore,id_localita,indirizzo) VALUES('','$n','$desc','$id','$r','$i'";
     $res=$conn->query("INSERT INTO store(id,nome,descrizione,id_venditore,id_localita,indirizzo) VALUES('','$n','$desc','$id','$r','$i')");
-    echo '<script>alert("Registrazione store effettuata"); location.href="?page=VisStore.php";</script>';
+    echo '<script>alert("Registrazione store effettuata"); location.href="?page=Vis.php";</script>';
 }
 ?>
 
